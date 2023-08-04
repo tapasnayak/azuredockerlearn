@@ -4,8 +4,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["azuredockerlearn.csproj", "azuredockerlearn/"]
-RUN dotnet restore "azuredockerlearn.csproj"
+COPY ["azuredockerlearn/azuredockerlearn.csproj", "azuredockerlearn/"]
+RUN dotnet restore "azuredockerlearn/azuredockerlearn.csproj"
 COPY . .
 WORKDIR "/src/azuredockerlearn"
 RUN dotnet build "azuredockerlearn.csproj" -c Release -o /app
